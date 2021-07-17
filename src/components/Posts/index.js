@@ -9,7 +9,7 @@ import Header from '../Header'
 import './index.css'
 
 export default class Posts extends Component {
-    state = {postData: [],apiStatus : false}
+    state = {postData: []}
 
     componentDidMount(){
         this.renderUserID();
@@ -26,18 +26,16 @@ export default class Posts extends Component {
                 title: item.title,
                 body: item.body,
             }))
-            this.setState({postData: formatedData,apiStatus:true});
+            this.setState({postData: formatedData});
         }
     }
 
     render() {
-        const {postData,apiStatus} = this.state;
+        const {postData} = this.state;
         const jwtToken = Cookies.get('jwt_token')
         if (jwtToken === undefined) {
           return <Redirect to="/login" />
         }
-
-        console.log(apiStatus);
 
         return (
             <div className="blog-list-container">
