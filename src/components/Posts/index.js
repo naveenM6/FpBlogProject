@@ -18,7 +18,7 @@ export default class Posts extends Component {
         const response = await fetch("http://localhost:3000/posts");
         let data = []
         if(response.ok === true){
-            data =await response.json();
+            data = await response.json();
             const formatedData = data.map( item =>({
                 id: item.id,
                 userId: item.userId,
@@ -40,7 +40,7 @@ export default class Posts extends Component {
             <div className="blog-list-container">
                 <Header/>
                 <h1 className="posts">Posts</h1>
-                {postData.map(item => <PostItems postData={item} key={item.id} />)}
+                {postData.length === 0?<h1 className="nodata">No Data Found</h1>:postData.map(item => <PostItems postData={item} key={item.id} />)}
             </div>
         )
     }

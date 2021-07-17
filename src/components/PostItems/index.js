@@ -6,8 +6,8 @@ const PostItems = props =>{
         <div className="postItem-container">
             <h1 className="postId">{postData.id}</h1>
             <div className="title-body">
-                <p><span>Title: </span>{postData.title}</p>
-                <p><span>Body: </span>{postData.body}</p>
+                <p><span className="postheaders">Title: </span>{postData.title}</p>
+                <p><span className="postheaders">Body: </span>{postData.body}</p>
             </div>
         </div> 
     )

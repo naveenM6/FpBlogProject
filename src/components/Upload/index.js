@@ -14,7 +14,7 @@ export default class Upload extends Component {
 
   enteringDatabase = async () =>{
      const {jsonData} = this.state;
-     for(let i=0; i<=jsonData.length; i++){
+     for(let i=0; i<jsonData.length; i++){
        console.log(jsonData[i]);
        const url = "http://localhost:3000/"
        const options = {
@@ -30,7 +30,7 @@ export default class Upload extends Component {
           })
        }
        const response = await fetch(url, options);
-       console.log(response)
+       console.log("upload",response)
      }
   }
 
@@ -44,7 +44,7 @@ export default class Upload extends Component {
           const reader = new FileReader();
           reader.onload =  () => {
             const parsedData = JSON.parse(reader.result);
-            this.setState({jsonData: parsedData})
+            this.setState({jsonData: parsedData,showErrorMsg: false})
             this.enteringDatabase()
           }
           reader.readAsText(files[0]);

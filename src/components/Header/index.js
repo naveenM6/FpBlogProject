@@ -4,10 +4,24 @@ import Cookies from 'js-cookie'
 import './index.css'
 
 const Header = props =>{
+
+    const clearDatabase = async () =>{
+        const url = "http://localhost:3000/logout"
+        const options = {
+            headers:{
+                "content-type": "application/json"
+            },
+            method: 'DELETE',
+        }
+        await fetch(url, options);
+    }
+
     const onclickLogout = () => {
-        const {history} = props
-        console.log(history);
+
+        clearDatabase()
+
         Cookies.remove('jwt_token')
+        const {history} = props
         history.replace('/login')
     }
 
