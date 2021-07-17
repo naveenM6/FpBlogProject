@@ -1,6 +1,7 @@
 import {Component} from 'react';
 import Cookies from 'js-cookie';
 import {Redirect} from 'react-router-dom';
+/* import Loader from 'react-loader-spinner' */
 
 import PostItems from '../PostItems'
 import Header from '../Header'
@@ -8,7 +9,7 @@ import Header from '../Header'
 import './index.css'
 
 export default class Posts extends Component {
-    state = {postData: []}
+    state = {postData: [],apiStatus : false}
 
     componentDidMount(){
         this.renderUserID();
@@ -25,22 +26,34 @@ export default class Posts extends Component {
                 title: item.title,
                 body: item.body,
             }))
-            this.setState({postData: formatedData});
+            this.setState({postData: formatedData,apiStatus:true});
         }
     }
 
     render() {
-        const {postData} = this.state;
+        const {postData,apiStatus} = this.state;
         const jwtToken = Cookies.get('jwt_token')
         if (jwtToken === undefined) {
           return <Redirect to="/login" />
         }
 
+        console.log(apiStatus);
+
         return (
             <div className="blog-list-container">
                 <Header/>
                 <h1 className="posts">Posts</h1>
-                {postData.length === 0?<h1 className="nodata">No Data Found</h1>:postData.map(item => <PostItems postData={item} key={item.id} />)}
+                {/* {apiStatus?
+                 (
+                    <div className="loader-container">
+                        <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
+                    </div>
+                 ):(postData.length === 0?
+                 (<h1 className="nodata">No Data Found</h1>):
+                 (postData.map(item => <PostItems postData={item} key={item.id} />)))} */}
+                {postData.length === 0?
+                 (<h1 className="nodata">No Data Found</h1>):
+                 (postData.map(item => <PostItems postData={item} key={item.id} />))}
             </div>
         )
     }
