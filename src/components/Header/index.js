@@ -6,7 +6,7 @@ import './index.css'
 const Header = props =>{
 
     const clearDatabase = async () =>{
-        const url = "http://localhost:3000/logout"
+        const url = "http://localhost:5000"
         const options = {
             headers:{
                 "content-type": "application/json"

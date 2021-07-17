@@ -15,8 +15,8 @@ export default class Upload extends Component {
   enteringDatabase = async () =>{
      const {jsonData} = this.state;
      for(let i=0; i<jsonData.length; i++){
-       console.log(jsonData[i]);
-       const url = "http://localhost:3000/"
+       /* console.log(jsonData[i]); */
+       const url = "http://localhost:5000/"
        const options = {
           headers:{
             "content-type": "application/json"
@@ -29,8 +29,7 @@ export default class Upload extends Component {
             body : jsonData[i].body,
           })
        }
-       const response = await fetch(url, options);
-       console.log("upload",response)
+       await fetch(url, options);
      }
   }
 
