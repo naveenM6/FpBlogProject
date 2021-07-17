@@ -10,13 +10,13 @@ import './index.css'
 const fileTypes = ["json"];
 
 export default class Upload extends Component {
-  state = {errMsg: "", showErrorMsg: false,jsonData:[]}
+  state = {errMsg: "", showErrorMsg: false,jsonData:[],isuploaded:''}
 
   enteringDatabase = async () =>{
      const {jsonData} = this.state;
      for(let i=0; i<jsonData.length; i++){
        /* console.log(jsonData[i]); */
-       const url = "http://localhost:5000/"
+       const url = "https://polar-savannah-20729.herokuapp.com/"
        const options = {
           headers:{
             "content-type": "application/json"
@@ -29,7 +29,10 @@ export default class Upload extends Component {
             body : jsonData[i].body,
           })
        }
-       await fetch(url, options);
+       const response = await fetch(url, options);
+       if (response.ok === true) {
+         this.setState({isuploaded:"File Successfully Uploaded"})
+       }
      }
   }
 
@@ -55,7 +58,7 @@ export default class Upload extends Component {
  }
         
     render(){
-        const {showErrorMsg,errMsg} = this.state
+        const {showErrorMsg,errMsg,isuploaded} = this.state
 
         const jwtToken = Cookies.get('jwt_token')
         if (jwtToken === undefined) {
@@ -70,6 +73,7 @@ export default class Upload extends Component {
                         <button className='btn'>Upload</button>
                     </ReactFileReader>
                     {showErrorMsg && <p className="error-message">*{errMsg}</p>}
+                    <p className="isuploaded">{isuploaded}</p>
                 </div>
             </div>
         )

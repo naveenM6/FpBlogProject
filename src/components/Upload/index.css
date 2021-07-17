@@ -1,8 +1,10 @@
-.error-message{
-    color: #ff0000d5;
-    font-size: 15px;
+.error-message,.isuploaded{
+    font-size: 25px;
     font-family: roboto;
     font-weight: bold;
+}
+.error-message{
+    color: #ff0000d5;
 }
 .upload-container{
     padding:40px;
@@ -10,6 +12,7 @@
 .upload-sub-container{
     height: 70vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 2px dashed #000000;

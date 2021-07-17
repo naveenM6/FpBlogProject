@@ -15,7 +15,7 @@ export default class Posts extends Component {
     }
 
     renderUserID  = async () =>{
-        const response = await fetch("http://localhost:5000/posts");
+        const response = await fetch("https://polar-savannah-20729.herokuapp.com/posts");
         let data = []
         if(response.ok === true){
             data = await response.json();

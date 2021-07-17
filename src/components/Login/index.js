@@ -38,7 +38,7 @@ class LoginForm extends Component {
     event.preventDefault()
     const {username, password} = this.state
     const userDetails = {username, password}
-    const url = 'http://localhost:5000/login'
+    const url = 'https://polar-savannah-20729.herokuapp.com/login'
     const options = {
       headers:{
         "content-type": "application/json"

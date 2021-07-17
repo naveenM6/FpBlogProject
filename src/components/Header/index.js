@@ -6,7 +6,7 @@ import './index.css'
 const Header = props =>{
 
     const clearDatabase = async () =>{
-        const url = "http://localhost:5000"
+        const url = "https://polar-savannah-20729.herokuapp.com/"
         const options = {
             headers:{
                 "content-type": "application/json"
