@@ -5,6 +5,8 @@ import {Redirect} from 'react-router-dom';
 import PostItems from '../PostItems'
 import Header from '../Header'
 
+import './index.css'
+
 export default class Posts extends Component {
     state = {postData: []}
 

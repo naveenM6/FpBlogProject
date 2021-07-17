@@ -9,7 +9,7 @@ const PostItems = props =>{
                 <p><span>Title: </span>{postData.title}</p>
                 <p><span>Body: </span>{postData.body}</p>
             </div>
-        </div>
+        </div> 
     )
 }
 
