@@ -1,0 +1,19 @@
+.error-message{
+    color: #ff0000d5;
+    font-size: 15px;
+    font-family: roboto;
+    font-weight: bold;
+}
+.upload-container{
+    padding:40px;
+}
+.upload-sub-container{
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #000000;
+}
+.btn{
+    padding:30px;
+}
