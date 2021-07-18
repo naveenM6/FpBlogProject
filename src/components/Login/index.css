@@ -29,3 +29,6 @@ label{
     border-radius: 8px;
     cursor:pointer;
 }
+.loginhead{
+    align-self: center;
+}
