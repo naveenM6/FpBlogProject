@@ -1,5 +1,7 @@
-.blog-list-container{
-    padding: 55px;
+@media screen and (min-width:768px){
+    .blog-list-container{
+        padding: 55px;
+    }
 }
 .posts{
     text-align: center;

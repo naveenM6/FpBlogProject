@@ -1,7 +1,7 @@
 .navbar-list-container{
     list-style-type: none;
     display:flex;
-    flex-direction: column;
+    justify-content: space-around;
     align-items:center;
 }
 .link{
@@ -9,6 +9,15 @@
     color: #000000;
 }
 
+@media screen and (max-width:767px){
+    .navbar-list-container{
+        margin-top: 38px;
+    }
+    li{
+        font-size: 18px;
+        font-weight: 500;
+    }
+}
 
 @media (min-width: 768px){
     .navbar-list-container{
